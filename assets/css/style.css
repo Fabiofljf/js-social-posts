@@ -1,0 +1,37 @@
+/* COMMON ROULES */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+}
+
+
+/* UTILITY */
+
+:root {
+    --br_primary: #023047;
+}
+
+.br_primary {
+    background-color: var(--br_primary);
+}
+
+.w_50 {
+    width: 50px;
+}
+
+.w_600 {
+    width: 600px;
+}
+
+.fs_9 {
+    font-size: 9px;
+}
+
+
+/* MAIN */
