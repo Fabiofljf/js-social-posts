@@ -129,10 +129,11 @@ miPiaceElement.forEach((miPiace, index) => {
 
     function getlike() {
         miPiace.classList.add('getlike') // Aggiungo la classe cambio colore.
+        if (miPiace == [0]) {
+            sommalike = (sommalike + 1)
+            console.log(sommalike); // - likes + 1;
 
-        sommalike = (sommalike + 1)
-        console.log(sommalike); // - likes + 1;
-
+        }
         return sommalike
     }
 })
