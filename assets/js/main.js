@@ -30,11 +30,11 @@ function getDate() {
 }
 
 data_oggi = getDate();
-console.log(data_oggi);
+//console.log(data_oggi);
 
 //Array per i post.
 const posts = [{
-        id: 01,
+        id: 0,
         numero_progressivo: 1,
         autore: 'Phil Mangione',
         foto: 'https://unsplash.it/300/300?image=',
@@ -44,7 +44,7 @@ const posts = [{
         numero_like: '20'
     },
     {
-        id: 02,
+        id: 1,
         numero_progressivo: 2,
         autore: 'Sofia Perlari',
         foto: 'https://unsplash.it/300/300?image=',
@@ -55,6 +55,9 @@ const posts = [{
     }
 ];
 //console.log(posts);
+
+
+
 
 
 // - Milestone 2
@@ -70,6 +73,7 @@ posts.forEach(post => {
     //console.log(post);
     //console.log(post.autore);
     //console.log(post.data);
+    //console.log(post.id);
     const memberMarkup = ` 
     <div class="col card p-2 mb-2">
         <div class="col d-flex align-items-center">
@@ -89,15 +93,13 @@ posts.forEach(post => {
         </div>
         <div class="col d-flex">
             <div class="col d-flex justify-content-around">
-                <p>
-                    <a href="#" id="like">
+                    <a href="#" class="miPiace">
                         <i class="fa-solid fa-thumbs-up"></i>
+                        Mi piace
                     </a>
-                Mi piace
-                </p>
             </div>
             <div class="col d-flex justify-content-around">
-                <p>Piace a <strong id="numero_like">${conta_like} </strong>persone</p>
+                <p>Piace a <strong class="numero_like">${sommalike} </strong>persone</p>
             </div>
         </div>
     </div>
@@ -107,23 +109,36 @@ posts.forEach(post => {
     rowElement.insertAdjacentHTML('beforeend', memberMarkup)
 })
 
+
+
+
+
+
 // - Milestone 3
 //Se clicchiamo sul tasto "Mi Piace" cambiamo il colore al testo del bottone e incrementiamo il counter dei likes relativo. Salviamo in un secondo array gli id dei post ai quali abbiamo messo il like.
 
-//console.log(sommalike);
+//classe>lo metto in una variabile > for.each> e dentro addEventListener
 
-//cambio colore al like
-document.getElementById('like').addEventListener('click', Ilike)
+let miPiaceElement = document.querySelectorAll('.miPiace')
+let arrayIdPost = [];
 
-function Ilike() {
-    document.getElementById('like').classList.add('getlike')
-    sommalike = (sommalike + 1)
-    console.log(sommalike);
-    return sommalike
-}
+miPiaceElement.forEach((miPiace, index) => {
+    console.log(miPiace); // - ancor tag + classe
+    console.log(index); // posizione dell'elemento nell'array
+    miPiace.addEventListener('click', getlike)
+
+    function getlike() {
+        miPiace.classList.add('getlike') // Aggiungo la classe cambio colore.
+
+        sommalike = (sommalike + 1)
+        console.log(sommalike); // - likes + 1;
+
+        return sommalike
+    }
+})
 
 
-console.log(sommalike);
-console.log(Ilike());
 
-var conta_like = Ilike()
+// var age = 26;
+// var beverage = (age >= 80) ? "Beer" : "Juice";
+// console.log(beverage); // "Beer"
