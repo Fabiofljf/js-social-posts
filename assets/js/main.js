@@ -19,7 +19,7 @@ Per le immagini va bene utilizzare qualsiasi servizio di placeholder ad es. Unsp
 
 //Imposto la data da utilizzare nel post.
 const dataElement = new Date()
-let gg, mm, aaaa;
+let gg, mm, aaaa, data_oggi;
 
 function getDate() {
     gg = dataElement.getDate();
@@ -31,7 +31,7 @@ function getDate() {
 }
 
 data_oggi = getDate();
-//console.log(data_oggi);
+console.log(data_oggi);
 
 //Array per i post.
 const posts = [{
@@ -51,7 +51,7 @@ const posts = [{
         foto: 'https://unsplash.it/300/300?image=',
         data: data_oggi,
         testo: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda eum nisi ut aperiam. Blanditiis nobis fuga quisquam. Ducimus corporis voluptatum totam quidem id ab aliquam!',
-        immagine_post: 'img',
+        immagine_post: 'https://unsplash.it/300/300?image=',
         numero_like: '20'
     }
 ];
