@@ -67,13 +67,14 @@ const rowElement = document.querySelector('.row');
 posts.forEach(post => {
     //console.log(post);
     //console.log(post.autore);
+    //console.log(post.data);
     const memberMarkup = ` 
     <div class="col card p-2 mb-2">
         <div class="col d-flex align-items-center">
             <img class="w_50 rounded-circle" src="${post.foto}" alt="foto utente">
             <div class="col d-flex flex-column">
                 <h6 class="ps-2 mb-0">${post.autore}</h6>
-                <p class="ps-2 mb-0 fs_9">${post.data_oggi}</p>
+                <p class="ps-2 mb-0 fs_9">${post.data}</p>
             </div>
         </div>
         <div class="col px-5">
