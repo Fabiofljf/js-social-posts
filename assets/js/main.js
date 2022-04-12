@@ -1,10 +1,9 @@
-/*
-Descrizione
-Ricreiamo un feed social aggiungendo al layout di base fornito, il nostro script JS in cui:
-*/
+//Descrizione
+//Ricreiamo un feed social aggiungendo al layout di base fornito, il nostro script JS in cui:
 
+
+// - Milestone 1
 /*
-Milestone 1
 Creiamo il nostro array di oggetti che rappresentano ciascun post. Ogni post dovrà avere le informazioni necessarie per stampare la relativa card:
 id del post, numero progressivo da 1 a n
 nome autore,
@@ -25,7 +24,7 @@ function getDate() {
     gg = dataElement.getDate();
     mm = dataElement.getMonth();
     aaaa = dataElement.getFullYear();
-    const laData = mm + "/" + gg + "/" + aaaa;
+    const laData = gg + "/" + mm + "/" + aaaa;
     return laData
 
 }
@@ -64,6 +63,9 @@ const posts = [{
 const rowElement = document.querySelector('.row');
 //console.log(rowElement);
 
+//Numero dei like da aumentare al click
+let sommalike = 80;
+
 posts.forEach(post => {
     //console.log(post);
     //console.log(post.autore);
@@ -87,10 +89,15 @@ posts.forEach(post => {
         </div>
         <div class="col d-flex">
             <div class="col d-flex justify-content-around">
-                <p><strong id="mi_piace">&hearts;</strong>Mi piace</p>
+                <p>
+                    <a href="#" id="like">
+                        <i class="fa-solid fa-thumbs-up"></i>
+                    </a>
+                Mi piace
+                </p>
             </div>
             <div class="col d-flex justify-content-around">
-                <p>Piace a <strong id="numero_like"></strong>persone</p>
+                <p>Piace a <strong id="numero_like">${conta_like} </strong>persone</p>
             </div>
         </div>
     </div>
@@ -99,3 +106,24 @@ posts.forEach(post => {
 
     rowElement.insertAdjacentHTML('beforeend', memberMarkup)
 })
+
+// - Milestone 3
+//Se clicchiamo sul tasto "Mi Piace" cambiamo il colore al testo del bottone e incrementiamo il counter dei likes relativo. Salviamo in un secondo array gli id dei post ai quali abbiamo messo il like.
+
+//console.log(sommalike);
+
+//cambio colore al like
+document.getElementById('like').addEventListener('click', Ilike)
+
+function Ilike() {
+    document.getElementById('like').classList.add('getlike')
+    sommalike = (sommalike + 1)
+    console.log(sommalike);
+    return sommalike
+}
+
+
+console.log(sommalike);
+console.log(Ilike());
+
+var conta_like = Ilike()
