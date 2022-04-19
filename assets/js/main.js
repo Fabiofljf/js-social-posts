@@ -122,20 +122,22 @@ let numerolike = document.querySelectorAll('.numero_like');
 let arrayIdPost = [];
 
 
-like.forEach((singleElement, index) => {
+numerolike.forEach((singleElement, index) => {
     //console.log(singleElement); // - ancor tag + classe;
     //console.log(index); //posizione dell'elemento nell'array;
     //console.log(like[index]);
+    //console.log(numerolike[index]);
+    //console.log(numerolike[index].textContent);
+    const addNumberLike = numerolike[index].textContent;
+    //console.log(addNumberLike);
 
     singleElement.addEventListener('click', getlike)
 
     function getlike() {
         singleElement.classList.add('getlike'); // Aggiungo la classe cambio colore.
-
-
+        addNumberLike += 1
+        console.log(addNumberLike);
     }
-
-
 })
 
 
