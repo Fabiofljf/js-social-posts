@@ -106,42 +106,35 @@ posts.forEach(post => {
     rowElement.insertAdjacentHTML('beforeend', memberMarkup)
 })
 
+
+
+
+
 // - Milestone 3
 //Se clicchiamo sul tasto "Mi Piace" cambiamo il colore al testo del bottone e incrementiamo il counter dei likes relativo. Salviamo in un secondo array gli id dei post ai quali abbiamo messo il like.
-
-//classe>lo metto in una variabile > for.each> e dentro addEventListener
 
 //Aggancio elemento DOM btn like
 let like = document.querySelectorAll('.miPiace');
 //Aggancio elemento DOM numero likes
 let numerolike = document.querySelectorAll('.numero_like');
-console.log(numerolike);
+//console.log(numerolike);
 //Array vuota dovre salvo gli id dei post ai quali ho messo mi piace
 let arrayIdPost = [];
 
 
 like.forEach((singleElement, index) => {
     //console.log(singleElement); // - ancor tag + classe;
-    //console.log(index); / / posizione dell'elemento nell'array;
-    console.log(like[index]);
+    //console.log(index); //posizione dell'elemento nell'array;
+    //console.log(like[index]);
 
     singleElement.addEventListener('click', getlike)
-
-    let sommalike = 0;
 
     function getlike() {
         singleElement.classList.add('getlike'); // Aggiungo la classe cambio colore.
 
-        numerolike.forEach(likeNumber => {
-            console.log(likeNumber);
-        })
-
-        console.log(numerolike);
-        //sommalike = numerolike + 1
-        //console.log(sommalike); // - likes + 1;
 
     }
-    //     return sommalike
+
 
 })
 
