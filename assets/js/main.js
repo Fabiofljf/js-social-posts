@@ -26,7 +26,6 @@ function getDate() {
     aaaa = dataElement.getFullYear();
     const laData = gg + "/" + mm + "/" + aaaa;
     return laData
-
 }
 
 data_oggi = getDate();
@@ -67,10 +66,6 @@ const rowElement = document.querySelector('.row');
 //console.log(rowElement);
 
 posts.forEach(post => {
-    //console.log(post);
-    //console.log(post.autore);
-    //console.log(post.data);
-    //console.log(post.id);
     const memberMarkup = ` 
     <div class="col card p-2 mb-2">
         <div class="col d-flex align-items-center">
@@ -90,10 +85,10 @@ posts.forEach(post => {
         </div>
         <div class="col d-flex">
             <div class="col d-flex justify-content-around">
-                    <a href="#" class="miPiace">
+                    <div href="#" class="miPiace">
                         <i class="fa-solid fa-thumbs-up"></i>
                         Mi piace
-                    </a>
+                    </div>
             </div>
             <div class="col d-flex justify-content-around">
                 <p>Piace a <strong class="numero_like">${post.numero_like} </strong>persone</p>
@@ -101,8 +96,6 @@ posts.forEach(post => {
         </div>
     </div>
     `
-        //console.log(memberMarkup);
-
     rowElement.insertAdjacentHTML('beforeend', memberMarkup)
 })
 
@@ -117,32 +110,18 @@ posts.forEach(post => {
 let like = document.querySelectorAll('.miPiace');
 //Aggancio elemento DOM numero likes
 let numerolike = document.querySelectorAll('.numero_like');
-//console.log(numerolike);
 //Array vuota dovre salvo gli id dei post ai quali ho messo mi piace
 let arrayIdPost = [];
 
 
-numerolike.forEach((singleElement, index) => {
-    //console.log(singleElement); // - ancor tag + classe;
-    //console.log(index); //posizione dell'elemento nell'array;
-    //console.log(like[index]);
-    //console.log(numerolike[index]);
-    //console.log(numerolike[index].textContent);
-    const addNumberLike = numerolike[index].textContent;
-    //console.log(addNumberLike);
-
+like.forEach((singleElement, index) => {
     singleElement.addEventListener('click', getlike)
 
     function getlike() {
         singleElement.classList.add('getlike'); // Aggiungo la classe cambio colore.
-        addNumberLike += 1
+        let addNumberLike = numerolike[index].textContent;
+        addNumberLike++
         console.log(addNumberLike);
+        numerolike[index].innerHTML = addNumberLike
     }
 })
-
-
-
-
-// var age = 26;
-// var beverage = (age >= 80) ? "Beer" : "Juice";
-// console.log(beverage); // "Beer"
