@@ -51,7 +51,7 @@ const posts = [{
         data: data_oggi,
         testo: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda eum nisi ut aperiam. Blanditiis nobis fuga quisquam. Ducimus corporis voluptatum totam quidem id ab aliquam!',
         immagine_post: 'https://unsplash.it/300/300?image=',
-        numero_like: '20'
+        numero_like: '10'
     }
 ];
 //console.log(posts);
@@ -65,9 +65,6 @@ const posts = [{
 
 const rowElement = document.querySelector('.row');
 //console.log(rowElement);
-
-//Numero dei like da aumentare al click
-let sommalike = 80;
 
 posts.forEach(post => {
     //console.log(post);
@@ -99,7 +96,7 @@ posts.forEach(post => {
                     </a>
             </div>
             <div class="col d-flex justify-content-around">
-                <p>Piace a <strong class="numero_like">${sommalike} </strong>persone</p>
+                <p>Piace a <strong class="numero_like">${post.numero_like} </strong>persone</p>
             </div>
         </div>
     </div>
@@ -109,34 +106,45 @@ posts.forEach(post => {
     rowElement.insertAdjacentHTML('beforeend', memberMarkup)
 })
 
-
-
-
-
-
 // - Milestone 3
 //Se clicchiamo sul tasto "Mi Piace" cambiamo il colore al testo del bottone e incrementiamo il counter dei likes relativo. Salviamo in un secondo array gli id dei post ai quali abbiamo messo il like.
 
 //classe>lo metto in una variabile > for.each> e dentro addEventListener
 
-let miPiaceElement = document.querySelectorAll('.miPiace')
+//Aggancio elemento DOM btn like
+let like = document.querySelectorAll('.miPiace');
+//Aggancio elemento DOM numero likes
+let numerolike = document.querySelectorAll('.numero_like');
+console.log(numerolike);
+//Array vuota dovre salvo gli id dei post ai quali ho messo mi piace
 let arrayIdPost = [];
 
-miPiaceElement.forEach((miPiace, index) => {
-    console.log(miPiace); // - ancor tag + classe
-    console.log(index); // posizione dell'elemento nell'array
-    miPiace.addEventListener('click', getlike)
+
+like.forEach((singleElement, index) => {
+    //console.log(singleElement); // - ancor tag + classe;
+    //console.log(index); / / posizione dell'elemento nell'array;
+    console.log(like[index]);
+
+    singleElement.addEventListener('click', getlike)
+
+    let sommalike = 0;
 
     function getlike() {
-        miPiace.classList.add('getlike') // Aggiungo la classe cambio colore.
-        if (miPiace == [0]) {
-            sommalike = (sommalike + 1)
-            console.log(sommalike); // - likes + 1;
+        singleElement.classList.add('getlike'); // Aggiungo la classe cambio colore.
 
-        }
-        return sommalike
+        numerolike.forEach(likeNumber => {
+            console.log(likeNumber);
+        })
+
+        console.log(numerolike);
+        //sommalike = numerolike + 1
+        //console.log(sommalike); // - likes + 1;
+
     }
+    //     return sommalike
+
 })
+
 
 
 
